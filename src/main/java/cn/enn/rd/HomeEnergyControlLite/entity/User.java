@@ -1,6 +1,7 @@
 package cn.enn.rd.HomeEnergyControlLite.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
@@ -21,7 +22,7 @@ public class User {
 	
 	private String password;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable
 	private List<Role> roles;
 	
