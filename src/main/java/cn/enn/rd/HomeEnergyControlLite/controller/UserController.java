@@ -29,7 +29,11 @@ public class UserController {
 	@RequestMapping("/users")
 	public List<User> users() {
 		
-		return userService.findAll();
+		List<User> lu = userService.findAll();
+		
+		System.out.println(lu.toString());
+		
+		return lu;
 	}
 	
 	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
@@ -46,9 +50,7 @@ public class UserController {
 	@RequestMapping(value = "/t/{id}", method = RequestMethod.GET)
 	public @ResponseBody User tt(@PathVariable Integer id, HttpServletResponse response) {
 
-		User ur = new User();
-		ur.setName("uyioo");
-		ur.setEmail("sdf@df.cn");
-		return ur;
+		List<User> lu = userService.findAll();
+		return lu.get(0);
 	}
 }

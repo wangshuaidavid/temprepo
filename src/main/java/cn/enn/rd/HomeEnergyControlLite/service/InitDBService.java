@@ -40,7 +40,7 @@ public class InitDBService {
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleAdmin);
 		roles.add(roleUser);
-		userAdmin.setRoles(roles);
+		//userAdmin.setRoles(roles);
 		userRepository.save(userAdmin);
 
 		
