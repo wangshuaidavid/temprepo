@@ -1,12 +1,10 @@
 package cn.enn.rd.HomeEnergyControlLite.controller;
 
-import java.awt.image.RasterFormatException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.management.RuntimeErrorException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,8 +29,8 @@ public class UserController {
 	@RequestMapping("/users")
 	public List<User> users() {
 		
-		List<User> lu = userService.findAll();
-		
+		//List<User> lu = userService.findAll();
+		List<User> lu = userService.findAlltest();
 		System.out.println(lu.toString());
 		
 		return lu;
@@ -52,9 +50,9 @@ public class UserController {
 	@RequestMapping(value = "/t/{id}", method = RequestMethod.GET)
 	public @ResponseBody User tt(@PathVariable Integer id, HttpServletResponse response) {
 
-		List<User> lu = userService.findAll();
+		User lu = userService.findUserByDao(id);
 		//throw new RasterFormatException("aaa");
-		return lu.get(0);
+		return lu;
 	}
 	
 	@ExceptionHandler

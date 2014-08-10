@@ -38,6 +38,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<jpa:repositories base-package="cn.enn.rd.HomeEnergyControlLite.repository" />
+	<jpa:repositories base-package="cn.enn.rd.HomeEnergyControlLite.repository" 
+	repository-impl-postfix="Impl"/>
 
 </beans>
