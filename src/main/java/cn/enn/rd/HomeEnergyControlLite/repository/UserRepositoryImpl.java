@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.stereotype.Component;
-
 import cn.enn.rd.HomeEnergyControlLite.entity.User;
 
 public class UserRepositoryImpl {

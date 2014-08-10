@@ -9,6 +9,7 @@
 	<!-- Shared version number properties -->
 	<properties>
 		<org.springframework.version>4.0.6.RELEASE</org.springframework.version>
+		<shiro-version>1.2.2</shiro-version>
 	</properties>
 
 	<dependencies>
@@ -155,7 +156,6 @@
 			<version>1.6.2.RELEASE</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -168,6 +168,23 @@
 			<version>1.9.13</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro-version}</version>
+		</dependency>
+
+<dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro-version}</version>
+        </dependency>
 	</dependencies>
 
 	<build>

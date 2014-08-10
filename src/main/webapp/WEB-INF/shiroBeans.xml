@@ -9,37 +9,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-
-	<context:component-scan base-package="cn.enn.rd.HomeEnergyControlLite">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
-
-	<jdbc:embedded-database type="HSQL" id="dataSource" />
-
-	<bean
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
-		id="entityManagerFactory">
-		<property name="packagesToScan" value="cn.enn.rd.HomeEnergyControlLite.entity" />
-		<property name="dataSource" ref="dataSource"></property>
-		<property name="jpaProperties">
-			<props>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
-			</props>
-		</property>
-		<property name="persistenceProvider">
-			<bean class="org.hibernate.jpa.HibernatePersistenceProvider" />
-		</property>
-	</bean>
-
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<jpa:repositories base-package="cn.enn.rd.HomeEnergyControlLite.repository" repository-impl-postfix="Impl"/>
-
 <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
     <property name="securityManager" ref="securityManager" />  
     <property name="loginUrl" value="/login" />  
@@ -48,7 +17,7 @@
     <property name="filterChainDefinitions">  
         <value>  
             /login = anon  
-            /user/** = authc  
+            /users/** = anon  
             /role/edit/* = perms[role:edit]  
             /role/save = perms[role:edit]  
             /role/list = perms[role:view]  
@@ -57,5 +26,6 @@
     </property>  
 </bean>  
 
-
+<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">  
+</bean>  
 </beans>
