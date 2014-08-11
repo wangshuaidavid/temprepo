@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.enn.rd.HomeEnergyControlLite.entity.User;
 import cn.enn.rd.HomeEnergyControlLite.service.UserService;
+import cn.enn.rd.HomeEnergyControlLite.webResponse.JsonResponse;
 
 
 @RestController
@@ -54,6 +55,17 @@ public class UserController {
 		//throw new RasterFormatException("aaa");
 		return lu;
 	}
+	
+	@RequestMapping(value = "/testResponse")
+	public  JsonResponse<Map<String, Object>>  TestResponseBody(HttpServletRequest request) {
+		
+		Map<String, Object> model = new TreeMap<String, Object>();
+		model.put("gogogo", false);
+		
+		return new JsonResponse<Map<String, Object>>(model);
+		
+	}
+	
 	
 	@ExceptionHandler
 	public Map<String, Object> exceptionHandler(RuntimeException re) {

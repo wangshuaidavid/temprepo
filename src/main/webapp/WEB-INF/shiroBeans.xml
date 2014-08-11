@@ -18,6 +18,7 @@
         <value>  
             /login = anon  
             /users/** = anon  
+            /testResponse/** = anon
             /role/edit/* = perms[role:edit]  
             /role/save = perms[role:edit]  
             /role/list = perms[role:view]  

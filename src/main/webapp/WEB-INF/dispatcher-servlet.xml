@@ -9,4 +9,8 @@
 	<context:component-scan base-package="cn.enn.rd.HomeEnergyControlLite.controller" />
 	<mvc:annotation-driven />
 
+	<mvc:interceptors>
+		<bean class="cn.enn.rd.HomeEnergyControlLite.interceptor.AuthInterceptor" />
+	</mvc:interceptors>
+
 </beans>
